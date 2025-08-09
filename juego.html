@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Juego .jar con CheerpJ</title>
+  <title>Juego .jar con CheerpJ - Diagnóstico</title>
   <script src="https://cjrtnc.leaningtech.com/2.3/loader.js"></script>
 </head>
 <body>
+  <h1>Ejecutando juego .jar con CheerpJ</h1>
+  <div id="status">Iniciando...</div>
   <script>
-    cheerpjInit();
-    cheerpjRunJar("https://tecnocurioso.github.io/MI-juego/MetalSlugMobileImpact.jar");
+    try {
+      cheerpjInit();
+      document.getElementById('status').innerText = "Cargando juego...";
+      cheerpjRunJar("https://tecnocurioso.github.io/MI-juego/MetalSlugMobileImpact.jar");
+    } catch(e) {
+      document.getElementById('status').innerText = "Error al cargar el juego: " + e.message;
+      console.error(e);
+    }
   </script>
 </body>
 </html>
